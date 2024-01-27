@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b09cd6a979180e90d95d20051715a530
+guid: 50bfe1ec1e4d7757c8b88b5406d7a9f8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,8 +46,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 220
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -123,12 +123,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_v1_0
+      name: Tigre_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 759
-        width: 222
+        x: 5
+        y: 802
+        width: 346
+        height: 207
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b828c2116b827b5b665c6b047dee7b
+      internalID: 1577905373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tigre_1
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 805
+        width: 349
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c95d0f890ee76d7e9fda00e8404f912
+      internalID: 1094296620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tigre_2
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 557
+        width: 305
         height: 247
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -137,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47dc8610be8130a50af277ef7c94494b
-      internalID: -805257792
+      spriteID: dd6e9b4c5ef4ce689848ea0349f18ebe
+      internalID: -1891687947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_v1_1
+      name: Tigre_3
       rect:
         serializedVersion: 2
-        x: 276
-        y: 780
-        width: 226
-        height: 231
+        x: 47
+        y: 519
+        width: 306
+        height: 247
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,19 +200,82 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4130d3fd9ba651b8ba9916fd0f25d0e
-      internalID: 1792484220
+      spriteID: a338c60e5bb6b1403bf27d0420c886be
+      internalID: 1427358346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_v1_2
+      name: Tigre_4
       rect:
         serializedVersion: 2
-        x: 540
-        y: 765
-        width: 222
+        x: 385
+        y: 523
+        width: 327
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607b99f638f3000b780375943bda0f6e
+      internalID: 1303657253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tigre_5
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 196
+        width: 305
+        height: 277
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7137446c4ce35fea509150b4da7e66
+      internalID: 484615143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tigre_6
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 179
+        width: 372
+        height: 290
+      alignment: 9
+      pivot: {x: 0.677, y: 0.09}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a17fab061ece9b681b3147a77c5cf2
+      internalID: 1056028600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tigre_8
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 204
+        width: 306
         height: 244
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -179,113 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a083df29b8363f697b1e30cadbe17e5e
-      internalID: -468313881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_v1_3
-      rect:
-        serializedVersion: 2
-        x: 782
-        y: 775
-        width: 227
-        height: 232
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36751ae970093439183d8f02513373df
-      internalID: -1083705960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_v1_4
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 485
-        width: 225
-        height: 240
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9979b9670f15f6e38ab17003ce8a944
-      internalID: -628302056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_v1_5
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 495
-        width: 225
-        height: 240
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e427d46e7a44e08a780502526be2c55b
-      internalID: 1139124708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_v1_6
-      rect:
-        serializedVersion: 2
-        x: 594
-        y: 506
-        width: 249
-        height: 240
-      alignment: 9
-      pivot: {x: 0.42, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 155ee083b85bff2ebb36a75cc7cc7019
-      internalID: -300890723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_v1_7
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 197
-        width: 207
-        height: 283
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0679c6edbc23021cfa4f357d516a8987
-      internalID: -835209963
+      spriteID: ce350623dbeb06d0697fc4b5a603033f
+      internalID: -300094859
       vertices: []
       indices: 
       edges: []
@@ -301,14 +301,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_v1_0: -805257792
-      Character_v1_1: 1792484220
-      Character_v1_2: -468313881
-      Character_v1_3: -1083705960
-      Character_v1_4: -628302056
-      Character_v1_5: 1139124708
-      Character_v1_6: -300890723
-      Character_v1_7: -835209963
+      Tigre_0: 1577905373
+      Tigre_1: 1094296620
+      Tigre_10: 430385914
+      Tigre_2: -1891687947
+      Tigre_3: 1427358346
+      Tigre_4: 1303657253
+      Tigre_5: 484615143
+      Tigre_6: 1056028600
+      Tigre_7: -510087807
+      Tigre_8: -300094859
+      Tigre_9: -811299001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
