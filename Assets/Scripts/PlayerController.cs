@@ -113,9 +113,14 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Hit Player:", hitCollider);
                 continue;
             }
+
             Debug.Log("Hit:", hitCollider);
-            Destroy(hitCollider.gameObject);
-            
+            // Destroy(hitCollider.gameObject);
+            if (hitCollider.gameObject.GetComponent<SpriteRenderer>() != null)
+            {
+                hitCollider.gameObject.GetComponent<SpriteRenderer>().color =
+                    new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
+            }
         }
     }
 
