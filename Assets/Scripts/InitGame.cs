@@ -26,6 +26,6 @@ public class InitGame : MonoBehaviour
 
     void TaskOnClick()
     {
-        SceneManager.LoadScene("InitialCutScene");
+        SceneManager.LoadScene("CG1");
     }
 }
