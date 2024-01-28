@@ -18,11 +18,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 _inputVector = new Vector2(0.0f, 0.0f);
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    
+    public float stunTime = .5f;
+    private float _stunTimeCounter = 1000;
 
     [Header("States")] [SerializeField] private string _currentState = "Idle";
     [SerializeField] private bool _isMoving = false;
     [SerializeField] private bool _canAttack = false;
     [SerializeField] private bool _isAttacking = false;
+    [SerializeField] private bool _isStunned = false;
 
 
     void Awake()
@@ -42,10 +46,13 @@ public class PlayerController : MonoBehaviour
     private void UpdateTimers()
     {
         _attackTimeCounter += Time.deltaTime;
+        _stunTimeCounter += Time.deltaTime;
         if (_isAttacking && _attackTimeCounter > attackTime)
             _isAttacking = false;
         if (!_canAttack && _attackTimeCounter > attackDelay)
             _canAttack = true;
+        if (_isStunned && _stunTimeCounter > stunTime)
+            _isStunned = false;
     }
 
     private void GetInputs()
@@ -59,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleStates()
     {
-        if (_isAttacking)
+        if (_isAttacking || _isStunned)
         {
             _inputVector = Vector2.zero;
         }
@@ -80,6 +87,7 @@ public class PlayerController : MonoBehaviour
 
     private string GetPlayerState()
     {
+        if (_isStunned) return "TakeDamage";
         if (_isAttacking) return "Attack";
         if (_isMoving) return "Walk";
         return "Idle";
@@ -110,7 +118,6 @@ public class PlayerController : MonoBehaviour
         {
             if (hitCollider.gameObject == this.gameObject)
             {
-                Debug.Log("Hit Player:", hitCollider);
                 continue;
             }
 
@@ -118,10 +125,17 @@ public class PlayerController : MonoBehaviour
             // Destroy(hitCollider.gameObject);
             if (hitCollider.gameObject.GetComponent<SpriteRenderer>() != null)
             {
+                GameController.Instance.ScreenShake();
                 hitCollider.gameObject.GetComponent<SpriteRenderer>().color =
                     new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
             }
         }
+    }
+
+    public void TakeDamage()
+    {
+        _stunTimeCounter = 0;
+        _isStunned = true;
     }
 
     private void OnDrawGizmos()

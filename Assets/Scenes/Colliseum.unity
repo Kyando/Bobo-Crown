@@ -226,10 +226,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 829684396000280064, guid: 17758310235ddea4d8cab3f304a48fa6, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1461952335132308133, guid: 17758310235ddea4d8cab3f304a48fa6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.3
@@ -522,6 +518,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -603,6 +600,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9c536c8bd94a8d8853cbe5d8308e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  base_shakeIntensity: 0.1
+  shakeDuration: 0.5
 --- !u!1 &554159533
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +876,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9077725880726697613, guid: 18e41a58a2250ece09516a25fbb75f65, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 519420033}
     - target: {fileID: 9077725880726697613, guid: 18e41a58a2250ece09516a25fbb75f65, type: 3}
       propertyPath: healthController
       value: 
@@ -1299,6 +1314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 8543721753819291720, guid: b93250e29a31efa40b14ee97d42f1ea1, type: 3}
   heightOffset: 1
+  minForce: 120
+  maxForce: 190
+  xOffset: 3
 --- !u!4 &1802019434
 Transform:
   m_ObjectHideFlags: 0
@@ -1308,7 +1326,7 @@ Transform:
   m_GameObject: {fileID: 1802019432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
