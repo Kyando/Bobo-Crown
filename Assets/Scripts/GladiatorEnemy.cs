@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GladiatorEnemy : BasicEnemy
 {
-
     public float minTargetX = -5f;
     public float maxTargetX = 5f;
     public GladiatorAttackZone gladiatorAttackZone;
+
     public override void UpdateTimers()
     {
         _idleTimerCounter += Time.deltaTime;
@@ -20,8 +20,8 @@ public class GladiatorEnemy : BasicEnemy
         if (_isAttacking && !_alreadyAttacked && _attackTimeCounter > attackTime)
         {
             _alreadyAttacked = true;
-            
         }
+
         _attackAnimTimeCounter += Time.deltaTime;
         if (_isAttacking && _attackAnimTimeCounter > attackAnimTime)
         {
@@ -31,7 +31,7 @@ public class GladiatorEnemy : BasicEnemy
         if (!_canAttack && _attackTimeCounter > attackDelay)
             _canAttack = true;
     }
-    
+
     public override void onPlayerEnterAttackZone()
     {
         bool isFacingRight = transform.localScale.x == -1;
@@ -46,7 +46,7 @@ public class GladiatorEnemy : BasicEnemy
     {
         _isPlayerInAttackZone = false;
     }
-    
+
     protected override void HandleStates()
     {
         FlipEnemy();
@@ -63,6 +63,7 @@ public class GladiatorEnemy : BasicEnemy
         if (_isWaiting)
         {
             _inputVector = Vector2.zero;
+            _isAttacking = false;
         }
 
         string newAnimationState = GetAnimState();
