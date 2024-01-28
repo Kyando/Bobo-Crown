@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public CameraShake cameraShake;
     public Spawner itemSpawner;
 
+    [Header("Kingu")] public KingEnemy kingEnemy;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -57,6 +59,12 @@ public class GameController : MonoBehaviour
     public void SpawnItem()
     {
         itemSpawner.SpawnObject();
+        itemSpawner.SpawnObject();
+        itemSpawner.SpawnObject();
+        if (kingEnemy != null)
+        {
+            kingEnemy.MakeMeLaugh();
+        }
     }
 
     public void HealHealth()

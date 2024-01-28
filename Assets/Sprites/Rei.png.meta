@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 220
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Rei_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1850
+        width: 474
+        height: 615
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d4dd225a3e453d2b7b899d19f4eb01
+      internalID: 970099202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_1
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1904
+        width: 474
+        height: 562
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff117c8d9888afca38b97c0bd4887e25
+      internalID: -86611024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_2
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1834
+        width: 475
+        height: 603
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7032f42b70b498ac69eca1648b381d82
+      internalID: 823883466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_3
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 1861
+        width: 475
+        height: 587
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebacd43e3a47c1368aa60e3ffebf8875
+      internalID: -1236952006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_4
+      rect:
+        serializedVersion: 2
+        x: 2003
+        y: 1878
+        width: 474
+        height: 593
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93dd1ad61d142a509f876aa03e402ab
+      internalID: -738603740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_5
+      rect:
+        serializedVersion: 2
+        x: 2275
+        y: 1865
+        width: 28
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: debd59e848ba324ff95aaa264b6334ad
+      internalID: -1638130550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_6
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1052
+        width: 458
+        height: 680
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3001898cdb363d4830c35cd42fd6c5
+      internalID: 565528283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_7
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1066
+        width: 459
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114eb744bac983a8b888b3fabb8f7fc9
+      internalID: -1533229494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_8
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 1079
+        width: 496
+        height: 678
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089ee37d3700cc56e8e5e46b2039bb83
+      internalID: 1189669895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rei_9
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 364
+        width: 497
+        height: 702
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f09e81a8b532d1e8acb59d4e17c9d3
+      internalID: 1509376612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rei_0: 970099202
+      Rei_1: -86611024
+      Rei_2: 823883466
+      Rei_3: -1236952006
+      Rei_4: -738603740
+      Rei_5: -1638130550
+      Rei_6: 565528283
+      Rei_7: -1533229494
+      Rei_8: 1189669895
+      Rei_9: 1509376612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
