@@ -10,6 +10,8 @@ public class BasicEnemy : MonoBehaviour
     protected Rigidbody2D _rigidbody2D;
     protected Animator _animator;
 
+    public int baseHp = 3;
+    private int _currentHp = 3;
     [Header("Movement")] public Vector2 movementSpeed = new Vector2(2.0f, 2.0f);
     public List<Vector3> pointsOfInterest;
     [SerializeField] protected Vector3 _targetPointOfInterest;
@@ -40,6 +42,7 @@ public class BasicEnemy : MonoBehaviour
         SelectRandomPointOfInterest();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _currentHp = baseHp;
     }
 
     private void SelectRandomPointOfInterest()
@@ -64,6 +67,7 @@ public class BasicEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (_currentHp <= 0) return;
         if (!_isWaiting && Vector2.Distance(this.transform.position, _targetPointOfInterest) < 0.5f)
         {
             SelectRandomPointOfInterest();
@@ -94,6 +98,7 @@ public class BasicEnemy : MonoBehaviour
                 GameController.Instance.DealDamage();
             }
         }
+
         _attackAnimTimeCounter += Time.deltaTime;
         if (_isAttacking && _attackAnimTimeCounter > attackAnimTime)
         {
@@ -141,6 +146,7 @@ public class BasicEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_currentHp <= 0) return;
         _rigidbody2D.MovePosition(_rigidbody2D.position + (_inputVector * movementSpeed * Time.fixedDeltaTime));
     }
 
@@ -153,5 +159,15 @@ public class BasicEnemy : MonoBehaviour
         if (_inputVector.x > 0)
             flippedScale = -1;
         transform.localScale = new Vector3(flippedScale, currentScale.y, currentScale.z);
+    }
+
+    public void TakeDamage()
+    {
+        this._currentHp--;
+        if (_currentHp <= 0)
+        {
+            Destroy(this.gameObject, .5f);
+            _animator.CrossFade("Die",0,0);
+        }
     }
 }

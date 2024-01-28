@@ -163,8 +163,13 @@ public class PlayerController : MonoBehaviour
             if (hitCollider.gameObject.GetComponent<SpriteRenderer>() != null)
             {
                 GameController.Instance.ScreenShake();
-                hitCollider.gameObject.GetComponent<SpriteRenderer>().color =
-                    new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
+                hitCollider.gameObject.GetComponent<BasicEnemy>().TakeDamage();
+
+                Vector4 newColor = hitCollider.gameObject.GetComponent<SpriteRenderer>().color;
+                newColor *= 0.8f;
+                newColor.z = 1;
+                hitCollider.gameObject.GetComponent<SpriteRenderer>().color = newColor;
+                    // new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
             }
         }
     }

@@ -180,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.51, y: 0.59}
+  m_Size: {x: 13.51, y: 0.19}
   m_EdgeRadius: 0
 --- !u!1 &6124929793995801418
 GameObject:
@@ -377,10 +377,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add9430326f289f4aa553716fc709de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHp: 3
   movementSpeed: {x: 1.9, y: 1.2}
   pointsOfInterest:
-  - {x: 3, y: 1, z: 0}
+  - {x: 3, y: 0, z: 0}
+  - {x: 3, y: -2, z: 0}
+  - {x: 3, y: -4, z: 0}
+  - {x: -3, y: 0, z: 0}
   - {x: -3, y: -2, z: 0}
+  - {x: -3, y: -4, z: 0}
   _targetPointOfInterest: {x: 0, y: 0, z: 0}
   idleTime: 3
   _idleTimerCounter: 1000
