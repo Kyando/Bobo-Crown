@@ -7,32 +7,32 @@ using Random = UnityEngine.Random;
 
 public class BasicEnemy : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody2D;
-    private Animator _animator;
+    protected Rigidbody2D _rigidbody2D;
+    protected Animator _animator;
 
     [Header("Movement")] public Vector2 movementSpeed = new Vector2(2.0f, 2.0f);
     public List<Vector3> pointsOfInterest;
-    [SerializeField] private Vector3 _targetPointOfInterest;
-    private Vector3 _inputVector = Vector2.zero;
+    [SerializeField] protected Vector3 _targetPointOfInterest;
+    protected Vector3 _inputVector = Vector2.zero;
 
     public float idleTime = 3;
-    [SerializeField] private float _idleTimerCounter = 1000;
+    [SerializeField] protected float _idleTimerCounter = 1000;
 
     [Header("Attack")] public float attackRadius = 5.0f;
     public LayerMask enemyLayers;
     public float attackTime = 2.0f;
     public float attackDelay = 4.0f;
-    private float _attackTimeCounter = 1000;
+    protected float _attackTimeCounter = 1000;
     public float attackAnimTime = 0.43f;
-    private float _attackAnimTimeCounter = 1000;
-    [SerializeField] private bool _isPlayerInAttackZone = false;
+    protected float _attackAnimTimeCounter = 1000;
+    [SerializeField] protected bool _isPlayerInAttackZone = false;
 
 
-    [Header("States")] [SerializeField] private string _currentState = "Idle";
-    [SerializeField] private bool _isWaiting = false;
-    [SerializeField] private bool _canAttack = true;
-    [SerializeField] private bool _alreadyAttacked = true;
-    [SerializeField] private bool _isAttacking = false;
+    [Header("States")] [SerializeField] protected string _currentState = "Idle";
+    [SerializeField] protected bool _isWaiting = false;
+    [SerializeField] protected bool _canAttack = true;
+    [SerializeField] protected bool _alreadyAttacked = true;
+    [SerializeField] protected bool _isAttacking = false;
 
 
     private void Awake()
@@ -52,12 +52,12 @@ public class BasicEnemy : MonoBehaviour
         _targetPointOfInterest = nextPoint;
     }
 
-    public void onPlayerEnterAttackZone()
+    public virtual void onPlayerEnterAttackZone()
     {
         _isPlayerInAttackZone = true;
     }
 
-    public void onPlayerExitAttackZone()
+    public virtual void onPlayerExitAttackZone()
     {
         _isPlayerInAttackZone = false;
     }
@@ -77,7 +77,7 @@ public class BasicEnemy : MonoBehaviour
         HandleStates();
     }
 
-    private void UpdateTimers()
+    public virtual void UpdateTimers()
     {
         _idleTimerCounter += Time.deltaTime;
         if (_idleTimerCounter > idleTime && _isWaiting)
@@ -105,7 +105,7 @@ public class BasicEnemy : MonoBehaviour
     }
 
 
-    private void HandleStates()
+    protected virtual void HandleStates()
     {
         FlipEnemy();
         if (_canAttack && _isPlayerInAttackZone)
@@ -132,7 +132,7 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-    private string GetAnimState()
+    protected virtual string GetAnimState()
     {
         if (_isAttacking) return "Attack";
         if (_isWaiting) return "Idle";
@@ -144,7 +144,7 @@ public class BasicEnemy : MonoBehaviour
         _rigidbody2D.MovePosition(_rigidbody2D.position + (_inputVector * movementSpeed * Time.fixedDeltaTime));
     }
 
-    private void FlipEnemy()
+    protected void FlipEnemy()
     {
         var currentScale = transform.localScale;
         float flippedScale = currentScale.x;

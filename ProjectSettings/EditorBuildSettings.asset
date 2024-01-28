@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/StartMenuScene.unity
+    guid: e7968a2f73b47ab44b7bef8db874e034
+  - enabled: 1
+    path: Assets/Scenes/InitialCutScene.unity
+    guid: 597fe761d19688f4aa3c97fa7c42f49c
+  - enabled: 1
+    path: Assets/Scenes/SceneBruno.unity
+    guid: 6d80c0afbb7379006976fa69d073dce8
+  - enabled: 1
+    path: Assets/Scenes/Colliseum.unity
+    guid: 3027dbe44833cacf0ab503eaca4da2d0
   m_configObjects: {}
