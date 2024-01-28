@@ -91,9 +91,7 @@ public class BasicEnemy : MonoBehaviour
             _alreadyAttacked = true;
             if (_isPlayerInAttackZone)
             {
-                Debug.Log("Bateu");
-                GameController.Instance.playerController.GetComponent<SpriteRenderer>().color =
-                    new Color(Random.Range(0, 1.0f), Random.Range(0,1.0f), Random.Range(0, 1.0f), 1);
+                GameController.Instance.DealDamage();
             }
         }
         _attackAnimTimeCounter += Time.deltaTime;
