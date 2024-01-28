@@ -50,7 +50,6 @@ public class KingEnemy : MonoBehaviour
     private void Start()
     {
         SelectRandomPointOfInterest();
-        _currentHp = 2;
     }
 
     private void Update()
@@ -102,6 +101,7 @@ public class KingEnemy : MonoBehaviour
             _inputVector = Vector2.zero;
         }
 
+        SoundController.Instance.SetSoundActive(SoundController.Instance.kingLaugh1Sfx, _isLaughing);
         string newAnimationState = GetAnimState();
 
         if (_currentState != newAnimationState)

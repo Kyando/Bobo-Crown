@@ -58,6 +58,8 @@ public class GameController : MonoBehaviour
 
     public void SpawnItem()
     {
+        SoundController.Instance.PlaySound(SoundController.Instance.plateiaSfx);
+        
         itemSpawner.SpawnObject();
         itemSpawner.SpawnObject();
         itemSpawner.SpawnObject();

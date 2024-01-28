@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour
 
             tauntBarFill.transform.localScale = new Vector3(xScale, tauntBarFill.transform.localScale.y, 1);
         }
+        
+        SoundController.Instance.SetSoundActive(SoundController.Instance.playerTauntSfx, _isTaunting);
 
         string newAnimationState = GetPlayerState();
         if (_currentState != newAnimationState)
@@ -150,6 +152,8 @@ public class PlayerController : MonoBehaviour
         _canAttack = false;
         _attackTimeCounter = 0;
 
+        SoundController.Instance.PlaySound(SoundController.Instance.playerAttackSfx);
+
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayers);
         foreach (var hitCollider in hitColliders)
         {
@@ -158,10 +162,10 @@ public class PlayerController : MonoBehaviour
                 continue;
             }
 
-            Debug.Log("Hit:", hitCollider);
             // Destroy(hitCollider.gameObject);
             if (hitCollider.gameObject.GetComponent<SpriteRenderer>() != null)
             {
+                SoundController.Instance.PlaySound(SoundController.Instance.playerHitSfx);
                 GameController.Instance.ScreenShake();
                 hitCollider.gameObject.GetComponent<BasicEnemy>().TakeDamage();
 
@@ -169,7 +173,7 @@ public class PlayerController : MonoBehaviour
                 newColor *= 0.8f;
                 newColor.z = 1;
                 hitCollider.gameObject.GetComponent<SpriteRenderer>().color = newColor;
-                    // new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
+                // new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
             }
         }
     }

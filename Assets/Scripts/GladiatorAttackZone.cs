@@ -12,8 +12,9 @@ public class GladiatorAttackZone : MonoBehaviour
         {
             canDealDamage = false;
             GameController.Instance.DealDamage();
-            
             gameObject.SetActive(false);
+            
+            SoundController.Instance.PlaySound(SoundController.Instance.gladiatorAttackSfx);
         }
         
     }

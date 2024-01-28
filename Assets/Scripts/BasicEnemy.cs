@@ -92,6 +92,8 @@ public class BasicEnemy : MonoBehaviour
         _attackTimeCounter += Time.deltaTime;
         if (_isAttacking && !_alreadyAttacked && _attackTimeCounter > attackTime)
         {
+            Debug.Log("Barulho");
+            SoundController.Instance.PlaySound(SoundController.Instance.tigerAttackSfx);
             _alreadyAttacked = true;
             if (_isPlayerInAttackZone)
             {
