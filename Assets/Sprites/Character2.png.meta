@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f9a535e25bec1e7cb76b6b834dba178
+guid: d0e81a902e48a937d9dd1650cda8cb8e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 440
+  spritePixelsToUnits: 220
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,43 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barra_plateia(1)_0
+      name: Character2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 409
-        width: 499
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 42
+        y: 206
+        width: 12
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d769a31c2ca9d703acb0376f8025fea
-      internalID: -778092611
+      spriteID: 71ee6f3bda90102ab90fce04d97d719c
+      internalID: -320444212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barra_plateia(1)_1
+      name: Character2_1
       rect:
         serializedVersion: 2
-        x: 6
-        y: 344
-        width: 489
-        height: 44
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 70
+        y: 0
+        width: 289
+        height: 254
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4d6a36fc67084c32a7797eda35cf89d
-      internalID: 1112912667
+      spriteID: efe159dc08a23776d966c30487af0e73
+      internalID: 864133359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character2_2
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 0
+        width: 313
+        height: 239
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49077e252677e3ca6b6e79f060ee49f3
+      internalID: 1578832702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character2_3
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 0
+        width: 296
+        height: 224
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba5e965662b4490ea74659bc5a6a212
+      internalID: 772986668
       vertices: []
       indices: 
       edges: []
@@ -175,8 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      barra_plateia(1)_0: -778092611
-      barra_plateia(1)_1: 1112912667
+      Character2_0: -320444212
+      Character2_1: 864133359
+      Character2_2: 1578832702
+      Character2_3: 772986668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -11,13 +11,7 @@ public class Spawner : MonoBehaviour
     public float maxForce = 12.0f;
     public float xOffset = 1.0f;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-            spawnObject();
-    }
-
-    void spawnObject()
+    public void SpawnObject()
     {
         float spawnX = Random.Range(1.2f, 5.55f) * -1;
         float spawnY = transform.position.y + heightOffset;

@@ -18,15 +18,22 @@ public class PlayerController : MonoBehaviour
     private Vector2 _inputVector = new Vector2(0.0f, 0.0f);
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    
+
     public float stunTime = .5f;
     private float _stunTimeCounter = 1000;
+
+    [Header("Taunt")] public GameObject tauntBarFill;
+    public float tauntFillTime;
+    [SerializeField] private float _tauntFillTimeCounter;
+
 
     [Header("States")] [SerializeField] private string _currentState = "Idle";
     [SerializeField] private bool _isMoving = false;
     [SerializeField] private bool _canAttack = false;
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private bool _isStunned = false;
+    [SerializeField] private bool _isTaunting = false;
+    [SerializeField] private bool _canGetItem = false;
 
 
     void Awake()
@@ -47,12 +54,15 @@ public class PlayerController : MonoBehaviour
     {
         _attackTimeCounter += Time.deltaTime;
         _stunTimeCounter += Time.deltaTime;
+        _tauntFillTimeCounter += Time.deltaTime;
         if (_isAttacking && _attackTimeCounter > attackTime)
             _isAttacking = false;
         if (!_canAttack && _attackTimeCounter > attackDelay)
             _canAttack = true;
         if (_isStunned && _stunTimeCounter > stunTime)
             _isStunned = false;
+        if (!_isTaunting)
+            _tauntFillTimeCounter = 0;
     }
 
     private void GetInputs()
@@ -62,6 +72,10 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
+
+        _isTaunting = Input.GetKey(KeyCode.F);
+        if (Input.GetKeyDown(KeyCode.F)) _canGetItem = true;
+        if (Input.GetKeyUp(KeyCode.F)) _canGetItem = false;
     }
 
     private void HandleStates()
@@ -69,6 +83,7 @@ public class PlayerController : MonoBehaviour
         if (_isAttacking || _isStunned)
         {
             _inputVector = Vector2.zero;
+            _isTaunting = false;
         }
         else
         {
@@ -76,6 +91,27 @@ public class PlayerController : MonoBehaviour
         }
 
         _isMoving = _inputVector != Vector2.zero;
+        if (_isMoving) _isTaunting = false;
+
+        _spriteRenderer.flipX = _isTaunting;
+
+        tauntBarFill.transform.parent.gameObject.SetActive(_isTaunting);
+        tauntBarFill.transform.parent.gameObject.transform.localScale = transform.localScale;
+        if (_isTaunting)
+        {
+            float xScale = _tauntFillTimeCounter / tauntFillTime;
+            if (xScale >= 1)
+            {
+                xScale = 1;
+                if (_canGetItem)
+                {
+                    _canGetItem = false;
+                    GameController.Instance.SpawnItem();
+                }
+            }
+
+            tauntBarFill.transform.localScale = new Vector3(xScale, tauntBarFill.transform.localScale.y, 1);
+        }
 
         string newAnimationState = GetPlayerState();
         if (_currentState != newAnimationState)
@@ -90,6 +126,7 @@ public class PlayerController : MonoBehaviour
         if (_isStunned) return "TakeDamage";
         if (_isAttacking) return "Attack";
         if (_isMoving) return "Walk";
+        if (_isTaunting) return "Taunt";
         return "Idle";
     }
 

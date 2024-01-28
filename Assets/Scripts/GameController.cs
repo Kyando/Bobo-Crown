@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public PlayerController playerController;
     public Heath healthController;
     public CameraShake cameraShake;
+    public Spawner itemSpawner;
 
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class GameController : MonoBehaviour
 
         playerController.TakeDamage();
         cameraShake.Shake(0.07f);
-        
+
         // playerController.GetComponent<SpriteRenderer>().color =
         //     new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
     }
@@ -51,6 +52,11 @@ public class GameController : MonoBehaviour
     public void ScreenShake()
     {
         cameraShake.Shake(0.04f);
+    }
+
+    public void SpawnItem()
+    {
+        itemSpawner.SpawnObject();
     }
 
     public void HealHealth()
