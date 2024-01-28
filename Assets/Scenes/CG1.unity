@@ -162,6 +162,7 @@ MonoBehaviour:
   - {fileID: 2605366365487323273, guid: 4ef775b17c0c84b47a184a329dbf1e25, type: 3}
   fadeIn: {fileID: 6435070107572334088, guid: a354df930317cd04bb1b76981280bc0c, type: 3}
   fadeOut: {fileID: 8326853620740299747, guid: ea0235a345a1a3d418caff0f638db0a0, type: 3}
+  scene: Colliseum
 --- !u!4 &255578127
 Transform:
   m_ObjectHideFlags: 0

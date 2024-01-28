@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -41,6 +42,18 @@ public class GameController : MonoBehaviour
         if (healthController.health <= 0)
         {
             healthController.health = 0;
+
+            if (SceneManager.GetActiveScene().name == "King Battle")
+            {   
+                Debug.Log("Caiu no g1");
+                SceneManager.LoadScene("Game Over 1");
+            }
+            else
+            {
+                Debug.Log("Caiu no g0");
+                SceneManager.LoadScene("Game Over");
+            }
+
             Debug.Log("GAME OVER!!!");
         }
 

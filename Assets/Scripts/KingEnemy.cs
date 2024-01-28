@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class KingEnemy : MonoBehaviour
@@ -54,7 +55,7 @@ public class KingEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (_currentHp <= 0) return;
+        if (_currentHp <= 0) SceneManager.LoadScene("CG3");
         if (!_isWaiting && Vector2.Distance(this.transform.position, _targetPointOfInterest) < 0.1f)
         {
             _idleTimerCounter = 0;

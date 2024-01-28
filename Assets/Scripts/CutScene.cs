@@ -13,6 +13,7 @@ public class CutScene : MonoBehaviour
     public GameObject fadeIn;
     public GameObject fadeOut;
     private GameObject actualScreen;
+    public String scene;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class CutScene : MonoBehaviour
 
             if (screenPosition == screens.Length)
             {
-                SceneManager.LoadScene("Colliseum");
+                SceneManager.LoadScene(scene);
             }
             
             Instantiate(fadeIn);

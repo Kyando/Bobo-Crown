@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Heath : MonoBehaviour
@@ -16,6 +17,10 @@ public class Heath : MonoBehaviour
    private void Update()
    {
 
+      if (health == 0)
+      {
+         // SceneManager.LoadScene("Game Over");
+      }
 
       if (health > numOfHearts)
       {

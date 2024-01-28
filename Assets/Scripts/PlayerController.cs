@@ -68,14 +68,14 @@ public class PlayerController : MonoBehaviour
     private void GetInputs()
     {
         _inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Attack();
         }
 
-        _isTaunting = Input.GetKey(KeyCode.F);
-        if (Input.GetKeyDown(KeyCode.F)) _canGetItem = true;
-        if (Input.GetKeyUp(KeyCode.F)) _canGetItem = false;
+        _isTaunting = Input.GetKey(KeyCode.X);
+        if (Input.GetKeyDown(KeyCode.X)) _canGetItem = true;
+        if (Input.GetKeyUp(KeyCode.X)) _canGetItem = false;
     }
 
     private void HandleStates()
