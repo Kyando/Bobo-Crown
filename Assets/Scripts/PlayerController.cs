@@ -19,10 +19,21 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
 
+    public float stunTime = .5f;
+    private float _stunTimeCounter = 1000;
+
+    [Header("Taunt")] public GameObject tauntBarFill;
+    public float tauntFillTime;
+    [SerializeField] private float _tauntFillTimeCounter;
+
+
     [Header("States")] [SerializeField] private string _currentState = "Idle";
     [SerializeField] private bool _isMoving = false;
     [SerializeField] private bool _canAttack = false;
     [SerializeField] private bool _isAttacking = false;
+    [SerializeField] private bool _isStunned = false;
+    [SerializeField] private bool _isTaunting = false;
+    [SerializeField] private bool _canGetItem = false;
 
 
     void Awake()
@@ -42,26 +53,37 @@ public class PlayerController : MonoBehaviour
     private void UpdateTimers()
     {
         _attackTimeCounter += Time.deltaTime;
+        _stunTimeCounter += Time.deltaTime;
+        _tauntFillTimeCounter += Time.deltaTime;
         if (_isAttacking && _attackTimeCounter > attackTime)
             _isAttacking = false;
         if (!_canAttack && _attackTimeCounter > attackDelay)
             _canAttack = true;
+        if (_isStunned && _stunTimeCounter > stunTime)
+            _isStunned = false;
+        if (!_isTaunting)
+            _tauntFillTimeCounter = 0;
     }
 
     private void GetInputs()
     {
         _inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Attack();
         }
+
+        _isTaunting = Input.GetKey(KeyCode.X);
+        if (Input.GetKeyDown(KeyCode.X)) _canGetItem = true;
+        if (Input.GetKeyUp(KeyCode.X)) _canGetItem = false;
     }
 
     private void HandleStates()
     {
-        if (_isAttacking)
+        if (_isAttacking || _isStunned)
         {
             _inputVector = Vector2.zero;
+            _isTaunting = false;
         }
         else
         {
@@ -69,6 +91,29 @@ public class PlayerController : MonoBehaviour
         }
 
         _isMoving = _inputVector != Vector2.zero;
+        if (_isMoving) _isTaunting = false;
+
+        _spriteRenderer.flipX = _isTaunting;
+
+        tauntBarFill.transform.parent.gameObject.SetActive(_isTaunting);
+        tauntBarFill.transform.parent.gameObject.transform.localScale = transform.localScale;
+        if (_isTaunting)
+        {
+            float xScale = _tauntFillTimeCounter / tauntFillTime;
+            if (xScale >= 1)
+            {
+                xScale = 1;
+                if (_canGetItem)
+                {
+                    _canGetItem = false;
+                    GameController.Instance.SpawnItem();
+                }
+            }
+
+            tauntBarFill.transform.localScale = new Vector3(xScale, tauntBarFill.transform.localScale.y, 1);
+        }
+        
+        SoundController.Instance.SetSoundActive(SoundController.Instance.playerTauntSfx, _isTaunting);
 
         string newAnimationState = GetPlayerState();
         if (_currentState != newAnimationState)
@@ -80,8 +125,10 @@ public class PlayerController : MonoBehaviour
 
     private string GetPlayerState()
     {
+        if (_isStunned) return "TakeDamage";
         if (_isAttacking) return "Attack";
         if (_isMoving) return "Walk";
+        if (_isTaunting) return "Taunt";
         return "Idle";
     }
 
@@ -105,18 +152,36 @@ public class PlayerController : MonoBehaviour
         _canAttack = false;
         _attackTimeCounter = 0;
 
+        SoundController.Instance.PlaySound(SoundController.Instance.playerAttackSfx);
+
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayers);
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.gameObject == this.gameObject)
             {
-                Debug.Log("Hit Player:", hitCollider);
                 continue;
             }
-            Debug.Log("Hit:", hitCollider);
-            Destroy(hitCollider.gameObject);
-            
+
+            // Destroy(hitCollider.gameObject);
+            if (hitCollider.gameObject.GetComponent<SpriteRenderer>() != null)
+            {
+                SoundController.Instance.PlaySound(SoundController.Instance.playerHitSfx);
+                GameController.Instance.ScreenShake();
+                hitCollider.gameObject.GetComponent<BasicEnemy>().TakeDamage();
+
+                Vector4 newColor = hitCollider.gameObject.GetComponent<SpriteRenderer>().color;
+                newColor *= 0.8f;
+                newColor.z = 1;
+                hitCollider.gameObject.GetComponent<SpriteRenderer>().color = newColor;
+                // new Color(Random.Range(0, 1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f), 1);
+            }
         }
+    }
+
+    public void TakeDamage()
+    {
+        _stunTimeCounter = 0;
+        _isStunned = true;
     }
 
     private void OnDrawGizmos()
